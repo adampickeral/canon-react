@@ -2,12 +2,6 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-      options: {
-        process: function (content, srcpath) {
-          return grunt.template.process(content);
-        }
-      }
-    },
 
     react: {
       options: {
@@ -93,7 +87,6 @@ module.exports = function (grunt) {
     'clean:test',
     'react:src',
     'react:test',
-    'copy',
     'browserify:test',
     'uglify:build',
     'clean:transpiled'

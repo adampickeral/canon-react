@@ -3,18 +3,15 @@ module.exports = function(config) {
 
     basePath: '',
 
-    frameworks: [
-      'mocha',
-      'chai',
-      'sinon'
-    ],
+    frameworks: [ 'jasmine' ],
 
     files: [
+      'test/jasmine-helpers.js',
       'test/vendor/es5-shim.js',
       'test_bundle.js'
     ],
 
-    reporters: ['progress'],
+    reporters: ['spec', 'failed'],
 
     port: 9876,
 
