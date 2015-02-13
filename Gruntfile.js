@@ -57,21 +57,36 @@ module.exports = function (grunt) {
           'test_bundle.js': ['test-built/**/*.js']
         },
         options: {
-          transform: ['envify'],
           verbose: true
+        }
+      },
+      release: {
+        files: {
+          'canon-react.js': ['src/**/*.jsx']
+        },
+        options: {
+          transform: ['reactify']
+        }
+      },
+      demo: {
+        files: {
+          'demo/bundle.js': ['src/**/*.jsx', 'demo/demo.jsx']
+        },
+        options: {
+          transform: ['reactify']
         }
       }
     },
 
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! canon-react <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'amd/<%= pkg.name %>.js',
-        dest: 'amd/<%= pkg.name %>.min.js'
+        src: 'canon-react.js',
+        dest: 'canon-react.min.js'
       }
-    }
+    },
 
   });
 
@@ -79,16 +94,24 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-react');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   grunt.registerTask('build', [
     'clean:test',
     'react:src',
     'react:test',
     'browserify:test',
+    'browserify:release',
     'uglify:build',
+    'clean:transpiled'
+  ]);
+
+  grunt.registerTask('demo-build', [
+    'clean:test',
+    'react:src',
+    'react:test',
+    'browserify:test',
+    'browserify:demo',
     'clean:transpiled'
   ]);
 
