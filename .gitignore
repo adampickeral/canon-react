@@ -1,2 +1,4 @@
 node_modules
 transpiled/*
+test_bundle.js
+test-build/*
