@@ -1,4 +1,4 @@
-var Button  = require('../transpiled/Button');
+var Button = require('../transpiled/Button');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
@@ -9,12 +9,8 @@ describe('Button', function () {
     clickFunction = jasmine.createSpy('clickFunction');
 
     button = TestUtils.renderIntoDocument(
-      <Button id='button-id' className='rs-primary' onClick={clickFunction}>Button Text</Button>
-    );    
-  });
-
-  afterEach(function () {
-    button.unmountComponent();
+      <Button id='button-id' className='test-button-class' onClick={clickFunction}>Button Text</Button>
+    );
   });
 
   it('is enabled by default', function () {
@@ -26,12 +22,8 @@ describe('Button', function () {
     expect(TestUtils.findRenderedDOMComponentWithTag(button, 'button')).not.toBeNull();
   });
 
-  it('has the rs-btn class', function () {
-    expect(button.getDOMNode()).toHaveClass('rs-btn');
-  });
-
   it('keeps the passed in classes', function () {
-    expect(button.getDOMNode()).toHaveClass('rs-primary');
+    expect(button.getDOMNode()).toHaveClass('test-button-class');
   });
 
   it('keeps all passed in properties', function () {
@@ -46,6 +38,75 @@ describe('Button', function () {
     TestUtils.Simulate.click(button.getDOMNode());
 
     expect(clickFunction).toHaveBeenCalled();
+  });
+
+  describe('button types', function () {
+    it('primary', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='primary'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-btn');
+      expect(button.getDOMNode()).toHaveClass('rs-btn-primary');
+    });
+
+    it('secondary', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='secondary'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-btn');
+    });
+
+    it('link', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='link'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-btn');
+      expect(button.getDOMNode()).toHaveClass('rs-btn-link');
+    });
+
+    it('login', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='login'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-btn');
+      expect(button.getDOMNode()).toHaveClass('rs-btn-login');
+    });
+
+    it('cog', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='cog'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-cog');
+    });
+
+    it('delete', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='delete'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-delete');
+    });
+
+    it('edit', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='edit'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-edit');
+    });
+
+    it('plus', function () {
+      button = TestUtils.renderIntoDocument(
+        <Button type='plus'>Button Text</Button>
+      );
+
+      expect(button.getDOMNode()).toHaveClass('rs-plus');
+    });
   });
 
   describe('when disabled', function () {

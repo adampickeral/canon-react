@@ -1,6 +1,6 @@
 var React = require('react');
 
-Button = React.createClass({
+var Button = React.createClass({
   propTypes: {
     enabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
@@ -9,7 +9,8 @@ Button = React.createClass({
 
   getDefaultProps: function () {
     return {
-      enabled: true
+      enabled: true,
+      type: 'secondary'
     };
   },
 
@@ -25,11 +26,17 @@ Button = React.createClass({
     var classes, buttonTypes;
 
     buttonTypes = {
-      'primary': 'rs-btn-primary',
-      'link': 'rs-btn-link'
+      'primary': 'rs-btn rs-btn-primary',
+      'link': 'rs-btn rs-btn-link',
+      'login': 'rs-btn rs-btn-login',
+      'secondary': 'rs-btn',
+      'cog': 'rs-cog',
+      'delete': 'rs-delete',
+      'edit': 'rs-edit',
+      'plus': 'rs-plus'
     };
 
-    classes = ['rs-btn'];
+    classes = [];
     classes.push(this.props.className);
 
     if (!this.props.enabled) {
