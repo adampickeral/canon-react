@@ -1,5 +1,6 @@
 var Button = require('./Button');
 var ButtonGroup = require('./ButtonGroup');
+var ProcessingIndicator = require('./ProcessingIndicator');
 
 (function () {
   React.render(
@@ -12,6 +13,7 @@ var ButtonGroup = require('./ButtonGroup');
         <Button type='delete' enabled={true}>Delete</Button>
         <Button type='edit' enabled={true}>Edit</Button>
         <Button type='plus' enabled={true}>Plus</Button>
+        <ProcessingIndicator></ProcessingIndicator>
       </ButtonGroup>
     </div>,
     document.getElementById('content')
