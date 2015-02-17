@@ -73,10 +73,7 @@ module.exports = function (grunt) {
       },
       release: {
         files: {
-          'canon-react.js': ['src/**/*.jsx']
-        },
-        options: {
-          transform: ['reactify']
+          'canon-react.js': ['transpiled/**/*.js']
         }
       },
       demo: {
