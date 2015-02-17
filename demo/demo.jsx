@@ -1,5 +1,5 @@
-var Button = require('../transpiled/Button');
-var ButtonGroup = require('../transpiled/ButtonGroup');
+var Button = require('../src/Button');
+var ButtonGroup = require('../src/ButtonGroup');
 var React = require('react');
 
 (function (Button, React) {

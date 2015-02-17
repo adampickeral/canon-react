@@ -1,5 +1,3 @@
-var React = require('react');
-
 var Button = React.createClass({
   propTypes: {
     enabled: React.PropTypes.bool,

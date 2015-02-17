@@ -1,6 +1,5 @@
 var ButtonGroup = require('../transpiled/ButtonGroup');
 var Button = require('../transpiled/Button');
-var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 describe('ButtonGroup', function () {
