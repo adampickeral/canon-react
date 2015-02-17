@@ -18,6 +18,17 @@ module.exports = function (grunt) {
           }
         ]
       },
+      demo: {
+        files: [
+          {
+            expand: true,
+            cwd: 'demo',
+            src: ['demo.jsx'],
+            dest: 'transpiled',
+            ext: '.js'
+          }
+        ]
+      },
       test: {
         files: [
           {
@@ -62,18 +73,12 @@ module.exports = function (grunt) {
       },
       release: {
         files: {
-          'canon-react.js': ['src/**/*.jsx']
-        },
-        options: {
-          transform: ['reactify']
+          'canon-react.js': ['transpiled/**/*.js']
         }
       },
       demo: {
         files: {
-          'demo/bundle.js': ['src/**/*.jsx', 'demo/demo.jsx']
-        },
-        options: {
-          transform: ['reactify']
+          'demo/bundle.js': ['transpiled/**/*.js']
         }
       }
     },
@@ -107,10 +112,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('demo-build', [
-    'clean:test',
     'react:src',
-    'react:test',
-    'browserify:test',
+    'react:demo',
     'browserify:demo',
     'clean:transpiled'
   ]);

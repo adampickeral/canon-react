@@ -6,8 +6,9 @@ module.exports = function(config) {
     frameworks: [ 'jasmine' ],
 
     files: [
-      'test/jasmine-helpers.js',
       'test/vendor/es5-shim.js',
+      'node_modules/react/dist/react-with-addons.js',
+      'test/jasmine-helpers.js',
       'test_bundle.js'
     ],
 

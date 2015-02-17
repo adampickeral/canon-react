@@ -1,5 +1,4 @@
 var Button = require('../transpiled/Button');
-var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 describe('Button', function () {
