@@ -23,7 +23,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             cwd: 'demo',
-            src: ['**/*.jsx'],
+            src: ['demo.jsx'],
             dest: 'transpiled',
             ext: '.js'
           }
@@ -82,9 +82,6 @@ module.exports = function (grunt) {
       demo: {
         files: {
           'demo/bundle.js': ['transpiled/**/*.js']
-        },
-        options: {
-          transform: ['reactify']
         }
       }
     },

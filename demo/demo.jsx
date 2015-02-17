@@ -1,5 +1,5 @@
-var Button = require('../transpiled/Button');
-var ButtonGroup = require('../transpiled/ButtonGroup');
+var Button = require('./Button');
+var ButtonGroup = require('./ButtonGroup');
 
 (function () {
   React.render(
