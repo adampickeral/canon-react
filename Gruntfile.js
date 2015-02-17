@@ -18,6 +18,17 @@ module.exports = function (grunt) {
           }
         ]
       },
+      demo: {
+        files: [
+          {
+            expand: true,
+            cwd: 'demo',
+            src: ['**/*.jsx'],
+            dest: 'transpiled',
+            ext: '.js'
+          }
+        ]
+      },
       test: {
         files: [
           {
@@ -70,7 +81,7 @@ module.exports = function (grunt) {
       },
       demo: {
         files: {
-          'demo/bundle.js': ['src/**/*.jsx', 'demo/demo.jsx']
+          'demo/bundle.js': ['transpiled/**/*.js']
         },
         options: {
           transform: ['reactify']
@@ -107,10 +118,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('demo-build', [
-    'clean:test',
     'react:src',
-    'react:test',
-    'browserify:test',
+    'react:demo',
     'browserify:demo',
     'clean:transpiled'
   ]);

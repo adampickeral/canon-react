@@ -1,8 +1,7 @@
-var Button = require('../src/Button');
-var ButtonGroup = require('../src/ButtonGroup');
-var React = require('react');
+var Button = require('../transpiled/Button');
+var ButtonGroup = require('../transpiled/ButtonGroup');
 
-(function (Button, React) {
+(function () {
   React.render(
     <div>
       <ButtonGroup>
@@ -17,4 +16,4 @@ var React = require('react');
     </div>,
     document.getElementById('content')
   );
-})(Button, React);
+})();
