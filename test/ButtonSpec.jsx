@@ -39,6 +39,18 @@ describe('Button', function () {
     expect(clickFunction).toHaveBeenCalled();
   });
 
+  it('is not hidden when hidden is false', function () {
+    expect(button.getDOMNode()).not.toHaveClass('rs-hidden');
+  });
+
+  it('is hidden when hidden is true', function () {
+    button = TestUtils.renderIntoDocument(
+      <Button hidden={true}>Button Text</Button>
+    );
+
+    expect(button.getDOMNode()).toHaveClass('rs-hidden');
+  });
+
   describe('button types', function () {
     it('primary', function () {
       button = TestUtils.renderIntoDocument(

@@ -2,13 +2,15 @@ var Button = React.createClass({
   propTypes: {
     enabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
+    hidden: React.PropTypes.bool
   },
 
   getDefaultProps: function () {
     return {
       enabled: true,
-      type: 'secondary'
+      type: 'secondary',
+      hidden: false
     };
   },
 
@@ -43,6 +45,10 @@ var Button = React.createClass({
 
     if (this.props.type && buttonTypes[this.props.type]) {
       classes.push(buttonTypes[this.props.type]);
+    }
+
+    if (this.props.hidden) {
+      classes.push('rs-hidden');
     }
 
     return classes.join(' ');
