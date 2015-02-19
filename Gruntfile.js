@@ -12,7 +12,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             cwd: 'src',
-            src: ['**/*.jsx'],
+            src: ['**/*.jsx', '**/*.js'],
             dest: 'transpiled',
             ext: '.js'
           }
@@ -73,7 +73,10 @@ module.exports = function (grunt) {
       },
       release: {
         files: {
-          'canon-react.js': ['transpiled/**/*.js']
+          'canon-react.js': ['transpiled/index.js']
+        },
+        options: {
+          standalone: 'canonReact'
         }
       },
       demo: {
