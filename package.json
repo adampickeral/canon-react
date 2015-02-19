@@ -12,6 +12,7 @@
     "react",
     "canon"
   ],
+  "main": "src/index.js",
   "author": "Adam Pickeral <adam.pickeral@rackspace.com>",
   "license": "MIT",
   "peerDependencies": {
