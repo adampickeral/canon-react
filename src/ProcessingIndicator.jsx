@@ -1,7 +1,23 @@
 var ProcessingIndicator = React.createClass({
+  propTypes: {
+    hidden: React.PropTypes.bool
+  },
+
+  getDefaultProps: function () {
+    return { hidden: true };
+  },
+
   render: function () {
+    var classes;
+
+    classes = 'rs-processing-indicator';
+
+    if (this.props.hidden) {
+      classes += ' rs-hidden';
+    };
+
     return (
-      <i className='rs-processing-indicator'></i>
+      <i className={classes}></i>
     );
   }
 });

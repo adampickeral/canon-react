@@ -17,4 +17,16 @@ describe('ProcessingIndicator', function () {
   it('renders an icon tag', function () {
     expect(TestUtils.findRenderedDOMComponentWithTag(processingIndicator, 'i')).not.toBeNull();
   });
+
+  it('is hidden by default', function () {
+    expect(processingIndicator.getDOMNode()).toHaveClass('rs-hidden');
+  });
+
+  it('is not hidden when hidden is false', function () {
+    processingIndicator = TestUtils.renderIntoDocument(
+      <ProcessingIndicator hidden={false}/>
+    );
+
+    expect(processingIndicator.getDOMNode()).not.toHaveClass('rs-hidden');
+  });
 });
