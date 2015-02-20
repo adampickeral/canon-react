@@ -102,4 +102,44 @@ describe('ProgressBar', function () {
       expect(statusBar.getDOMNode()).toHaveClass('rs-bar-striped');
     });
   });
+
+  describe('size', function () {
+    function renderWithSize(size) {
+      progressBar = TestUtils.renderIntoDocument(<ProgressBar size={size} />);
+    }
+
+    it('defaults to no size', function () {
+      expect(progressBar.getDOMNode().className).toBe('rs-progress');
+    });
+
+    it('xsmall', function () {
+      renderWithSize('xsmall');
+
+      expect(progressBar.getDOMNode()).toHaveClass('rs-progress-xsmall');
+    });
+
+    it('small', function () {
+      renderWithSize('small');
+
+      expect(progressBar.getDOMNode()).toHaveClass('rs-progress-small');
+    });
+
+    it('medium', function () {
+      renderWithSize('medium');
+
+      expect(progressBar.getDOMNode()).toHaveClass('rs-progress-medium');
+    });
+
+    it('large', function () {
+      renderWithSize('large');
+
+      expect(progressBar.getDOMNode()).toHaveClass('rs-progress-large');
+    });
+
+    it('xlarge', function () {
+      renderWithSize('xlarge');
+
+      expect(progressBar.getDOMNode()).toHaveClass('rs-progress-xlarge');
+    });
+  });
 });

@@ -1,3 +1,11 @@
+var SizeClasses = {
+  'xsmall': 'rs-progress-xsmall',
+  'small': 'rs-progress-small',
+  'medium': 'rs-progress-medium',
+  'large': 'rs-progress-large',
+  'xlarge': 'rs-progress-xlarge',
+};
+
 var StatusClasses = {
   'ok': 'rs-status-ok',
   'error': 'rs-status-error',
@@ -19,6 +27,17 @@ var ProgressBar = React.createClass({
     };
   },
 
+  _getSizeClass: function () {
+    var sizeClass;
+
+    sizeClass = 'rs-progress';
+
+    if (SizeClasses[this.props.size]) {
+      sizeClass += ' ' + SizeClasses[this.props.size];
+    }
+    return sizeClass;
+  },
+
   _getStatusClass: function () {
     var statusClass;
 
@@ -29,18 +48,16 @@ var ProgressBar = React.createClass({
   },
 
   render: function () {
-    var style, width, statusClass;
+    var style, width;
 
     width = this.props.progress + '%';
     style = { 'width': width };
 
-    statusClass = this._getStatusClass();
-
     return (
-      <div className="rs-progress">
-        <div className="rs-progress-inner">
-          <div className="rs-segment" style={style}>
-            <div className={statusClass}></div>
+      <div className={this._getSizeClass()}>
+        <div className='rs-progress-inner'>
+          <div className='rs-segment' style={style}>
+            <div className={this._getStatusClass()}></div>
           </div>
         </div>
       </div>
