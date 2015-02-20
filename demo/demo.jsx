@@ -1,6 +1,7 @@
 var Button = require('./Button');
 var ButtonGroup = require('./ButtonGroup');
 var ProcessingIndicator = require('./ProcessingIndicator');
+var ProgressBar = require('./ProgressBar');
 
 (function () {
   React.render(
@@ -141,6 +142,15 @@ var ProcessingIndicator = require('./ProcessingIndicator');
             <Button type='link' enabled={false} hidden={true}>Cancel</Button>
             <ProcessingIndicator hidden={false}/>
           </ButtonGroup>
+        </div>
+      </div>
+
+      <div className='rs-detail-section'>
+        <div className='rs-detail-section-header'>
+          <h2>Progress Bars</h2>
+        </div>
+        <div className='rs-detail-section-body'>
+          <ProgressBar/>
         </div>
       </div>
     </div>,
