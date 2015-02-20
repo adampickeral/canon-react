@@ -165,7 +165,18 @@ var ProgressBar = require('./ProgressBar');
           <ProgressBar progress={25} type='solid' status='info'/>
           <br/>
           <ProgressBar progress={75} type='striped' status='info'/>
+        </div>
+        <div className='rs-detail-section-body'>
+          <h3>Fixed Width</h3>
+          <ProgressBar progress={25} size='xsmall'/>
           <br/>
+          <ProgressBar progress={25} size='small'/>
+          <br/>
+          <ProgressBar progress={25} size='medium'/>
+          <br/>
+          <ProgressBar progress={25} size='large'/>
+          <br/>
+          <ProgressBar progress={25} size='xlarge'/>
         </div>
       </div>
     </div>,
