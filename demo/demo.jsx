@@ -150,7 +150,22 @@ var ProgressBar = require('./ProgressBar');
           <h2>Progress Bars</h2>
         </div>
         <div className='rs-detail-section-body'>
-          <ProgressBar/>
+          <ProgressBar progress={25} type='solid' status='ok'/>
+          <br/>
+          <ProgressBar progress={75} type='striped' status='ok'/>
+          <br/>
+          <ProgressBar progress={25} type='solid' status='warning'/>
+          <br/>
+          <ProgressBar progress={75} type='striped' status='warning'/>
+          <br/>
+          <ProgressBar progress={25} type='solid' status='error'/>
+          <br/>
+          <ProgressBar progress={75} type='striped' status='error'/>
+          <br/>
+          <ProgressBar progress={25} type='solid' status='info'/>
+          <br/>
+          <ProgressBar progress={75} type='striped' status='info'/>
+          <br/>
         </div>
       </div>
     </div>,
