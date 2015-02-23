@@ -96,8 +96,27 @@ module.exports = function (grunt) {
       }
     },
 
+    jshint: {
+      options: {
+        eqeqeq: true,
+        curly: true,
+        funcscope: true,
+        undef: true,
+        unused: true,
+        browser: true,
+        jasmine: true,
+        browserify: true,
+        globals: {
+          React: true
+        }
+      },
+      files: ['Gruntfile.js', 'src/**/*', 'test/**/*.jsx', 'test/jasmine-helpers.js']
+    }
+
   });
 
+  grunt.loadNpmTasks('grunt-jsxhint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-react');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -106,6 +125,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:test',
+    'jshint',
     'react:src',
     'react:test',
     'browserify:test',
