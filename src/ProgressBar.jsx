@@ -20,10 +20,10 @@ var TypeClasses = {
 
 var ProgressBar = React.createClass({
   propTypes: {
-    progress: React.PropType.number
-    status: React.PropType.string,
-    type: React.PropType.string,
-    size: React.PropType.string
+    progress: React.PropTypes.number,
+    status: React.PropTypes.string,
+    type: React.PropTypes.string,
+    size: React.PropTypes.string
   },
 
   getDefaultProps: function () {
