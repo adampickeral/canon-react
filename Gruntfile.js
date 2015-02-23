@@ -125,6 +125,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:test',
+    'jshint',
     'react:src',
     'react:test',
     'browserify:test',
