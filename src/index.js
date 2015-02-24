@@ -1,5 +1,6 @@
 module.exports = {
   Button: require('./Button'),
   ButtonGroup: require('./ButtonGroup'),
-  ProcessingIndicator: require('./ProcessingIndicator')
+  ProcessingIndicator: require('./ProcessingIndicator'),
+  ProgressBar: require('./ProgressBar')
 };
